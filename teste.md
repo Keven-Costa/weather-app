@@ -6,45 +6,48 @@
 ![Tecnologias](https://img.shields.io/badge/tech-JavaScript%20|%20Node.js%20|%20Open--Meteo-blue)
 ![License](https://img.shields.io/badge/license-MIT-green)
 
-Este é um aplicativo simples de previsão do tempo desenvolvido em **JavaScript**, que consome a API pública **Open-Meteo** para obter a **temperatura atual** de uma cidade informada pelo usuário via terminal.  
-O projeto tem foco em **boas práticas**, **organização de código** e **separação de responsabilidades**.
+## 🌤️ Visão Geral do Projeto
+
+Este projeto é um **aplicativo simples de previsão do tempo**, desenvolvido em **JavaScript** para execução via terminal. Ele permite que o usuário informe o nome de uma cidade e retorna a **temperatura atual**, consumindo a API pública **Open-Meteo**.
+
+O objetivo principal do projeto é praticar **consumo de APIs**, **organização de código**, **boas práticas de desenvolvimento** e **separação de responsabilidades**, sendo ideal para fins acadêmicos e aprendizado.
 
 ---
 
 ## 📌 Índice
 
-- [**Tecnologias Utilizadas**](#tecnologias-utilizadas)
-- [**Funcionalidades**](#funcionalidades)
-- [**Estrutura do Projeto**](#estrutura-do-projeto)
-- [**Como Executar**](#como-executar)
-- [**Possíveis Melhorias Futuras**](#possiveis-melhorias)
-- [**Tratamento de Erros**](#tratamentos-de-erros)
-- [**API Utilizada**](#api-utilizada)
+* Tecnologias Utilizadas
+* Funcionalidades
+* Estrutura do Projeto
+* Como Executar
+* Tratamento de Erros
+* API Utilizada
+* Possíveis Melhorias Futuras
 
 ---
 
-## <a id="tecnologias-utilizadas"></a> 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas
 
-- JavaScript (ES Modules)
-- Node.js
-- API Open-Meteo (Geocoding + Weather)
-- Fetch API (nativa do Node)
-
----
-
-## <a id="funcionalidades"></a> 🌦️ Funcionalidades
-
-- Recebe o nome da cidade via terminal
-- Converte o nome da cidade em coordenadas geográficas
-- Consulta a temperatura atual usando a API Open-Meteo
-- Exibe o resultado de forma clara no console
-- Tratamento básico de erros (cidade inválida, falha na requisição)
+* JavaScript (ES Modules)
+* Node.js (v18 ou superior)
+* Fetch API (nativa do Node)
+* API Open-Meteo (Geocoding + Weather Forecast)
 
 ---
 
-## <a id="estrutura-do-projeto"></a> 📂 Estrutura do Projeto
+## 🌦️ Funcionalidades
 
-```md
+* Entrada do nome da cidade via terminal
+* Conversão do nome da cidade em coordenadas geográficas
+* Consulta da temperatura atual
+* Exibição clara do resultado no console
+* Código modularizado e organizado em camadas
+
+---
+
+## 📂 Estrutura do Projeto
+
+```
 weather-app/
 ├── src/
 │   ├── config/
@@ -59,26 +62,28 @@ weather-app/
 │   │   └── main.js
 ├── package.json
 └── README.md
-````
+```
 
 **Descrição das camadas:**
-- `api`: comunicação com APIs externas
-- `services`: lógica de negócio
-- `ui`: exibição dos dados no console
-- `main.js`: ponto de entrada da aplicação
+
+* `api`: responsável pela comunicação com a API externa
+* `services`: contém a lógica de negócio
+* `ui`: responsável pela exibição dos dados no console
+* `main.js`: ponto de entrada da aplicação
 
 ---
 
-## <a id="como-executar"></a> 🚀 Como Executar o Projeto
+## 🚀 Como Executar
 
 ### Pré-requisitos
 
-- **Node.js 18 ou superior**
+* Node.js **18 ou superior**
 
-Verifique a versão:
+Verifique a versão instalada:
+
 ```bash
 node -v
-````
+```
 
 ---
 
@@ -98,7 +103,7 @@ cd weather-app
 
 ### 2. Configure o projeto
 
-No `package.json`, certifique-se de que existe:
+No arquivo `package.json`, verifique se existe a configuração:
 
 ```json
 {
@@ -120,8 +125,9 @@ Ou:
 node src/js/main.js London
 ```
 
+---
 
-## <a id="tratamentos-de-erros"></a> ❗Tratamento de Erros
+## ❗ Tratamento de Erros
 
 O aplicativo trata os seguintes cenários:
 
@@ -132,7 +138,8 @@ O aplicativo trata os seguintes cenários:
 Mensagens de erro são exibidas de forma clara no console.
 
 ---
-## <a id="api-utilizada"></a> 🌐 API Utilizada
+
+## 🌐 API Utilizada
 
 * **Open-Meteo Geocoding API**: converte o nome da cidade em latitude e longitude
 * **Open-Meteo Weather Forecast API**: retorna os dados climáticos com base nas coordenadas
@@ -141,11 +148,11 @@ Documentação oficial: [https://open-meteo.com/](https://open-meteo.com/)
 
 ---
 
-## <a id="possiveis-melhorias"></a> 📌 Possíveis Melhorias Futuras
+## 📌 Possíveis Melhorias Futuras
 
-* Exibir mais dados climáticos (vento, sensação térmica, umidade)
+* Exibir mais dados climáticos (vento, umidade, sensação térmica)
 * Criar interface web com HTML e CSS
-* Implementar cache de cidades
+* Implementar cache para cidades consultadas
 * Adicionar testes automatizados
 * Migrar a lógica para um backend (ex: Spring Boot)
 
@@ -154,5 +161,3 @@ Documentação oficial: [https://open-meteo.com/](https://open-meteo.com/)
 ## 📄 Licença
 
 Este projeto está sob a licença MIT. Sinta-se à vontade para usar, modificar e compartilhar.
-
-
