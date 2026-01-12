@@ -3,21 +3,16 @@ import {
   fetchCurrentWeather,
 } from "../api/weatherApi.js";
 
-/**
- * Obtém a temperatura atual de uma cidade
- */
-export async function getCityTemperature(cityName) {
-  // 1. Busca coordenadas da cidade
+export async function getCityWeather(cityName) {
   const city = await fetchCityCoordinates(cityName);
 
-  // 2. Busca temperatura atual
   const temperature = await fetchCurrentWeather(
     city.latitude,
     city.longitude
   );
 
   return {
-    city: city.name,
+    name: city.name,
     country: city.country,
     temperature,
   };

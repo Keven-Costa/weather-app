@@ -1,21 +1,29 @@
-import { getCityTemperature } from "./services/weatherService.js";
-import { showWeatherResult, showError } from "./ui/consoleView.js";
+import { getCityWeather } from "./services/weatherService.js";
+import { showWeather, showError } from "./ui/weatherView.js";
 
-// Captura o nome da cidade via terminal
-const cityName = process.argv[2];
+const cityInput = document.getElementById("cityInput");
+const searchBtn = document.getElementById("searchBtn");
 
-if (!cityName) {
-  showError("Please provide a city name. Example: node main.js London");
-  process.exit(1);
-}
+async function handleSearch() {
+  const cityName = cityInput.value.trim();
 
-async function run() {
+  if (!cityName) {
+    showError("Informe o nome da cidade");
+    return;
+  }
+
   try {
-    const result = await getCityTemperature(cityName);
-    showWeatherResult(result);
+    const weather = await getCityWeather(cityName);
+    showWeather(weather);
   } catch (error) {
     showError(error.message);
   }
 }
 
-run();
+searchBtn.addEventListener("click", handleSearch);
+
+cityInput.addEventListener("keypress", (event) => {
+  if (event.key === "Enter") {
+    handleSearch();
+  }
+});
